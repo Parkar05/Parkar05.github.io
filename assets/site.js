@@ -52,15 +52,3 @@
     cbox.innerHTML = ""; cbox.appendChild(f); cbox.classList.add("live", "tall");
   }
 })();
-// Mobile menu
-(function () {
-  var btn = document.querySelector(".menu-btn"), nav = document.querySelector(".nav");
-  if (!btn || !nav) return;
-  btn.addEventListener("click", function () {
-    var open = nav.classList.toggle("menu-open");
-    btn.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-  document.querySelectorAll(".nav-links a").forEach(function (a) {
-    a.addEventListener("click", function () { nav.classList.remove("menu-open"); btn.setAttribute("aria-expanded", "false"); });
-  });
-})();
