@@ -24,12 +24,15 @@ window.PORTFOLIO = {
   // Profile photo (put the file in assets/, e.g. "assets/photo.jpg")
   photo: "",
 
-  // Certificate shown in About (link = the certificate or your LinkedIn certifications page)
-  certificate: {
-    name:   "Data Science Certificate",
-    issuer: "",
-    link:   "https://www.linkedin.com/in/mohammedaliparkar/details/certifications/"
-  },
+  // Certifications shown in About (most relevant first).
+  // "link" is optional: paste the credential URL from LinkedIn's "Show credential" button.
+  certificates: [
+    { name: "Data Scientist",                       issuer: "EdYoda Digital University", date: "Apr 2023", link: "" },
+    { name: "Lean Six Sigma White Belt",            issuer: "PwC",                       date: "Mar 2024", link: "" },
+    { name: "Python Certificate",                   issuer: "Scaler",                    date: "Oct 2023", link: "" },
+    { name: "Python Certification",                 issuer: "EdYoda Digital University", date: "Nov 2022", link: "" },
+    { name: "Programming for Everybody (Python)",   issuer: "Coursera",                  date: "Jul 2020", link: "" }
+  ],
 
   // Project card images (put PNG/JPG in assets/thumbs/), e.g. "assets/thumbs/b2b-360.png"
   thumbs: {

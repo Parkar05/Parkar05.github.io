@@ -61,10 +61,13 @@
     document.querySelectorAll("[data-photo]").forEach(function (img) { img.src = asset(C.photo); });
     document.querySelectorAll("[data-photo-wrap]").forEach(function (w) { w.style.display = ""; });
   }
-  var cert = C.certificate || {};
-  document.querySelectorAll("[data-cert-name]").forEach(function (e) { if (cert.name) e.textContent = cert.name; });
-  document.querySelectorAll("[data-cert-issuer]").forEach(function (e) { e.textContent = cert.issuer || ""; if (!cert.issuer) e.style.display = "none"; });
-  document.querySelectorAll("[data-cert-link]").forEach(function (e) { if (cert.link) e.href = cert.link; else e.style.display = "none"; });
+  var box = document.querySelector("[data-certs]");
+  if (box && C.certificates) {
+    box.innerHTML = C.certificates.map(function (c) {
+      var name = c.link ? '<a href="' + c.link + '" target="_blank" rel="noopener">' + c.name + '</a>' : c.name;
+      return '<div class="certi"><b>' + name + '</b><span>' + c.issuer + (c.date ? ' · ' + c.date : '') + '</span></div>';
+    }).join("");
+  }
   var T = C.thumbs || {};
   document.querySelectorAll("[data-thumb]").forEach(function (d) {
     var u = T[d.getAttribute("data-thumb")];
