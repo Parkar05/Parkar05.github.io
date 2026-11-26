@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>B2B 360° Management Dashboard · Your Name</title><meta name="description" content="Data analyst portfolio: live Power BI dashboards and a machine-learning churn model.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/style.css"></head><body>
+<nav class="nav"><div class="wrap"><a class="brand" href="../index.html"><span class="badge" data-initials></span><span data-name></span></a>
+<div class="nav-links"><a href="../index.html#projects" class="keep">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#skills">Skills</a><a href="../index.html#about">About</a><a href="../index.html#contact" class="keep">Contact</a></div></div></nav>
+<main class="wrap">
+<p class="crumb"><a href="../index.html#projects">← All projects</a></p>
+<header class="phead"><p class="eyebrow">Power BI · Executive dashboard</p><h1>B2B 360° Management Dashboard</h1>
+<p class="lede">One report that gives management the full picture of the B2B business: revenue, margin, customer base, sales, churn, devices, pipeline and commissions.</p>
+<div class="meta"><div><small>Built for</small><b>Senior management</b></div><div><small>Refresh</small><b>Daily refresh</b></div><div><small>Data sources</small><b>PostgreSQL · Oracle · MySQL · SharePoint · OneDrive Excel</b></div><div><small>Model size</small><b>70 tables · 400+ measures</b></div></div></header>
+<div class="embed-bar"><span>Interactive report. Click, filter and drill through.</span><a class="btn" data-report-link="b2b-360" href="#" target="_blank" rel="noopener">Open full screen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a></div>
+<div class="embed" data-report="b2b-360" data-title="B2B 360° Management Dashboard"><div class="soon"><div><b>Live report coming soon</b>The interactive Power BI report will appear here.</div></div></div>
+<section><div class="two"><div class="panel"><p class="eyebrow">The problem</p><p>Management needed to see the whole B2B business in one place. Financials, the subscriber base, sales activity, churn, devices, the sales pipeline, waivers and incentives were all reported separately, from five different systems.</p></div>
+<div class="panel"><p class="eyebrow">What I built</p><p>I built one star-schema model over all five sources (hundreds of millions of rows at source). A 360° home page shows the headline KPI from every area, and each KPI opens a detailed page.</p><p class="outcome" style="margin:10px 0 0"><b>Impact:</b> 13 drill-through pages behind a single 360° KPI home page</p></div></div></section>
+
+<section style="padding-top:0"><p class="eyebrow">Inside the report</p><h2>What each page answers</h2><div class="pages"><div class="page"><b>360° Overview</b><span>Headline KPIs from every page: revenue YTD vs full-year budget, margin, base, GA, churn, pipeline</span></div><div class="page"><b>Financials</b><span>Revenue &amp; gross-margin bridges vs budget, projected year-end, revenue stream contribution</span></div><div class="page"><b>Base</b><span>Voice &amp; data base trend, bill amount, collections, past due</span></div><div class="page"><b>Gross Add</b><span>GA voice/data by month, KAM, team, top companies and promotions</span></div><div class="page"><b>Port-In / Port-Out</b><span>Operator flows, monthly trend, per KAM and team</span></div><div class="page"><b>Churn</b><span>Terminations by month, company, KAM, team and promotion</span></div><div class="page"><b>Devices</b><span>Device sales count &amp; value CY vs PY, top brands, returns rate</span></div><div class="page"><b>Pipeline</b><span>Open vs weighted pipeline, stage funnel, win rate, top services</span></div><div class="page"><b>Waivers</b><span>Request value &amp; aging, top reasons, user-mistake requests by team</span></div><div class="page"><b>Vouchers</b><span>Issued vs redeemed, cohort utilisation, time to full use</span></div><div class="page"><b>Mobility &amp; Enterprise</b><span>Quarterly incentive achievement vs target</span></div><div class="page"><b>PMO &amp; Report updates</b><span>Project tracker and a change log for users</span></div></div></section>
+<section style="padding-top:0"><div class="two"><div class="panel"><p class="eyebrow">How it's built</p><ul><li>Star schema with conformed contract, KAM and date dimensions shared across 13 subject areas</li><li>Power Query unions of GA, churn and upgrade/downgrade events, with KAM-segment mapping</li><li>Bridge (waterfall) logic driven by a disconnected axis table and TREATAS</li><li>Time intelligence: YTD, CY vs PY, budget-to-date, projected year-end</li><li>Voucher cohort analysis, Deneb custom visual, page-navigation UX with buttons</li></ul>
+<div class="chips" style="margin-top:16px"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">PostgreSQL</span><span class="chip">Oracle</span><span class="chip">SharePoint</span><span class="chip">Data modelling</span></div></div>
+<div class="panel"><p class="eyebrow">DAX highlight</p><div style="margin-top:18px"><p class="code-title">Revenue bridge: one measure drives every bar</p><pre><span class="k">VAR</span> CategoryName =
+    <span class="k">SELECTEDVALUE</span> ( &#x27;360 Revenue Bridge Axis&#x27;[Bridge Category] )
+<span class="k">RETURN</span>
+    <span class="k">SWITCH</span> (
+        <span class="k">TRUE</span> (),
+        CategoryName = <span class="s">&quot;Budget&quot;</span>, [360 Gross Revenue Budget Actual Period],
+        CategoryName = <span class="s">&quot;Actual&quot;</span>, [360 Gross Revenue Actual],
+        <span class="k">CALCULATE</span> (
+            [360 Gross Revenue Actual] - [360 Gross Revenue Budget Actual Period],
+            <span class="k">KEEPFILTERS</span> ( &#x27;360_Fact_PNL&#x27;[P&amp;L Type] = <span class="s">&quot;revenue&quot;</span> ),
+            <span class="k">KEEPFILTERS</span> ( &#x27;360_Fact_PNL&#x27;[Include in P&amp;L] = <span class="s">&quot;Yes&quot;</span> ),
+            <span class="k">TREATAS</span> ( { CategoryName }, &#x27;360_Fact_PNL&#x27;[360 Revenue Stream] )
+        )
+    )</pre></div><div style="margin-top:18px"><p class="code-title">Weighted pipeline</p><pre><span class="k">COALESCE</span> (
+    <span class="k">CALCULATE</span> (
+        <span class="k">SUMX</span> (
+            SalesForce_Pipeline,
+            SalesForce_Pipeline[AMOUNT] * <span class="k">DIVIDE</span> ( SalesForce_Pipeline[PROBABLITY], 100 )
+        ),
+        <span class="k">KEEPFILTERS</span> ( SalesForce_Pipeline[Pipeline Status] = <span class="s">&quot;Open&quot;</span> )
+    ),
+    0
+)</pre></div></div></div></section>
+<div class="note"><span>🔒</span><span>Originally built on live production data. This public version runs on <b>anonymised, rescaled sample data</b>: all customer, employee and contract details are fictional.</span></div>
+<div class="next"><span></span><a class="btn" href="lead-tracking.html">Enterprise Lead Tracking →</a></div>
+</main><footer><div class="wrap">© <span data-year></span> <span data-name></span> · Dashboards run on anonymised sample data. Built with HTML &amp; CSS, hosted on GitHub Pages.</div></footer>
+<script src="../assets/config.js"></script><script src="../assets/site.js"></script></body></html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Enterprise Sales Achievement · Your Name</title><meta name="description" content="Data analyst portfolio: live Power BI dashboards and a machine-learning churn model.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/style.css"></head><body>
+<nav class="nav"><div class="wrap"><a class="brand" href="../index.html"><span class="badge" data-initials></span><span data-name></span></a>
+<div class="nav-links"><a href="../index.html#projects" class="keep">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#skills">Skills</a><a href="../index.html#about">About</a><a href="../index.html#contact" class="keep">Contact</a></div></div></nav>
+<main class="wrap">
+<p class="crumb"><a href="../index.html#projects">← All projects</a></p>
+<header class="phead"><p class="eyebrow">Power BI · Commission dashboard</p><h1>Enterprise Sales Achievement</h1>
+<p class="lede">Quarterly target vs achievement for enterprise KAMs by product category, from signed POs and their services, with payout calculated in the report.</p>
+<div class="meta"><div><small>Built for</small><b>Enterprise KAMs &amp; management</b></div><div><small>Refresh</small><b>Daily, quarterly payout</b></div><div><small>Data sources</small><b>SharePoint Lists · Excel targets</b></div><div><small>Model size</small><b>16 tables · 62 measures</b></div></div></header>
+<div class="embed-bar"><span>Interactive report. Click, filter and drill through.</span><a class="btn" data-report-link="enterprise-achievement" href="#" target="_blank" rel="noopener">Open full screen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a></div>
+<div class="embed" data-report="enterprise-achievement" data-title="Enterprise Sales Achievement"><div class="soon"><div><b>Live report coming soon</b>The interactive Power BI report will appear here.</div></div></div>
+<section><div class="two"><div class="panel"><p class="eyebrow">The problem</p><p>Enterprise achievement depends on PO services, their category and the quarter they were signed, plus manual adjustments. Tracking it against category targets was slow and easy to dispute.</p></div>
+<div class="panel"><p class="eyebrow">What I built</p><p>The model combines PO services with an adjustments list and maps every service to a target category. Cumulative target, achievement % and remaining target are calculated per category. A single payout measure works for a KAM, a segment manager or the whole team.</p><p class="outcome" style="margin:10px 0 0"><b>Impact:</b> Cumulative target, remaining gap and payout for every KAM and segment</p></div></div></section>
+
+<section style="padding-top:0"><p class="eyebrow">Inside the report</p><h2>What each page answers</h2><div class="pages"><div class="page"><b>Enterprise performance</b><span>Achievement % by category (donuts), cumulative vs remaining target, final payout</span></div><div class="page"><b>Service detail</b><span>PO, contract, service and value behind the achievement</span></div></div></section>
+<section style="padding-top:0"><div class="two"><div class="panel"><p class="eyebrow">How it's built</p><ul><li>Union of PO services and target adjustments into one achievement fact</li><li>Service-to-target-category mapping table</li><li>Cumulative (quarter-to-date) targets that ignore the date filter</li><li>Context-aware payout: KAM, segment manager or total</li></ul>
+<div class="chips" style="margin-top:16px"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Row-level security</span><span class="chip">SharePoint Lists</span></div></div>
+<div class="panel"><p class="eyebrow">DAX highlight</p><div style="margin-top:18px"><p class="code-title">Payout that adapts to what is selected</p><pre><span class="k">VAR</span> HasKAM     = <span class="k">HASONEVALUE</span> ( Employee_Master[KAM_Name] )
+<span class="k">VAR</span> HasSegment = <span class="k">HASONEVALUE</span> ( Employee_Master[Segment] )
+<span class="k">VAR</span> KAMPayout     = <span class="k">SUMX</span> ( <span class="k">VALUES</span> ( Dim_TargetCategory[Category] ), [Incentive - KAM Payout] )
+<span class="k">VAR</span> ManagerPayout = <span class="k">SUMX</span> ( <span class="k">VALUES</span> ( Dim_TargetCategory[Category] ), [Incentive - Manager Payout] )
+<span class="k">RETURN</span>
+    <span class="k">SWITCH</span> (
+        <span class="k">TRUE</span> (),
+        HasKAM,     <span class="k">COALESCE</span> ( KAMPayout, 0 ),       <span class="c">-- one KAM selected</span>
+        HasSegment, <span class="k">COALESCE</span> ( ManagerPayout, 0 ),   <span class="c">-- one segment selected</span>
+        <span class="k">COALESCE</span> ( [Incentive - Total KAM Payout Card], 0 )
+            + <span class="k">COALESCE</span> ( [Incentive - Total Manager Payout Card], 0 )
+    )</pre></div></div></div></section>
+<div class="note"><span>🔒</span><span>Originally built on live production data. This public version runs on <b>anonymised, rescaled sample data</b>: all customer, employee and contract details are fictional.</span></div>
+<div class="next"><a class="btn" href="mobility-incentive.html">← Mobility Sales Incentive</a><a class="btn" href="churn-prediction.html">Churn Prediction (ML) →</a></div>
+</main><footer><div class="wrap">© <span data-year></span> <span data-name></span> · Dashboards run on anonymised sample data. Built with HTML &amp; CSS, hosted on GitHub Pages.</div></footer>
+<script src="../assets/config.js"></script><script src="../assets/site.js"></script></body></html>

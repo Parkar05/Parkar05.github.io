@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mobility Sales Incentive · Your Name</title><meta name="description" content="Data analyst portfolio: live Power BI dashboards and a machine-learning churn model.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/style.css"></head><body>
+<nav class="nav"><div class="wrap"><a class="brand" href="../index.html"><span class="badge" data-initials></span><span data-name></span></a>
+<div class="nav-links"><a href="../index.html#projects" class="keep">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#skills">Skills</a><a href="../index.html#about">About</a><a href="../index.html#contact" class="keep">Contact</a></div></div></nav>
+<main class="wrap">
+<p class="crumb"><a href="../index.html#projects">← All projects</a></p>
+<header class="phead"><p class="eyebrow">Power BI · Commission dashboard</p><h1>Mobility Sales Incentive</h1>
+<p class="lede">Quarterly commission dashboard: each KAM&#x27;s MRC achievement against target from gross adds, upgrades, downgrades and churn, converted into payout.</p>
+<div class="meta"><div><small>Built for</small><b>KAMs &amp; sales management</b></div><div><small>Refresh</small><b>Daily, quarterly payout</b></div><div><small>Data sources</small><b>PostgreSQL · SharePoint Excel (targets, payout grid)</b></div><div><small>Model size</small><b>18 tables · 86 measures</b></div></div></header>
+<div class="embed-bar"><span>Interactive report. Click, filter and drill through.</span><a class="btn" data-report-link="mobility-incentive" href="#" target="_blank" rel="noopener">Open full screen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a></div>
+<div class="embed" data-report="mobility-incentive" data-title="Mobility Sales Incentive"><div class="soon"><div><b>Live report coming soon</b>The interactive Power BI report will appear here.</div></div></div>
+<section><div class="two"><div class="panel"><p class="eyebrow">The problem</p><p>Commission was worked out in spreadsheets at quarter end. KAMs couldn&#x27;t see how they were tracking during the quarter, and checking the numbers took a lot of manual work.</p></div>
+<div class="panel"><p class="eyebrow">What I built</p><p>Mobility transactions (GA, churn, upgrades, downgrades) are unioned into one fact table, measured against quarterly MRC targets, and mapped to a payout grid by segment. Management sees every KAM; each KAM sees only themselves through RLS.</p><p class="outcome" style="margin:10px 0 0"><b>Impact:</b> One version of the truth for KAM payouts, with a row-level-security view per KAM</p></div></div></section>
+
+<section style="padding-top:0"><p class="eyebrow">Inside the report</p><h2>What each page answers</h2><div class="pages"><div class="page"><b>Executive view</b><span>Achievement % vs target, run rate, final payout by segment and KAM</span></div><div class="page"><b>Achievement drivers</b><span>Gross add, upgrade, downgrade and churn MRC impact</span></div><div class="page"><b>KAM detail</b><span>Contract and line-level transactions behind each number</span></div></div></section>
+<section style="padding-top:0"><div class="two"><div class="panel"><p class="eyebrow">How it's built</p><ul><li>Power Query union of GA/churn and upgrade/downgrade events with segment mapping</li><li>Run-rate and achievement measures that follow the selected quarter</li><li>Payout lookup against a tiered achievement grid per segment (Large / Medium / FONZ)</li><li>Manager payouts roll up their team; RLS for the KAM version</li></ul>
+<div class="chips" style="margin-top:16px"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Row-level security</span><span class="chip">PostgreSQL</span><span class="chip">SharePoint</span></div></div>
+<div class="panel"><p class="eyebrow">DAX highlight</p><div style="margin-top:18px"><p class="code-title">Run rate for the selected quarter</p><pre><span class="k">VAR</span> Qtr = [Selected Quarter]
+<span class="k">VAR</span> CurrentQtr = <span class="k">COALESCE</span> ( Qtr, <span class="k">MAX</span> ( Dim_Date[Quarter Number] ) )
+<span class="k">RETURN</span>
+    [2 Dashboard_Base_MRC]
+        + <span class="k">CALCULATE</span> (
+            [1 Total Achievement],
+            <span class="k">FILTER</span> ( <span class="k">ALL</span> ( Dim_Date ), Dim_Date[Quarter Number] = CurrentQtr )
+        )</pre></div></div></div></section>
+<div class="note"><span>🔒</span><span>Originally built on live production data. This public version runs on <b>anonymised, rescaled sample data</b>: all customer, employee and contract details are fictional.</span></div>
+<div class="next"><a class="btn" href="lead-tracking.html">← Enterprise Lead Tracking</a><a class="btn" href="enterprise-achievement.html">Enterprise Sales Achievement →</a></div>
+</main><footer><div class="wrap">© <span data-year></span> <span data-name></span> · Dashboards run on anonymised sample data. Built with HTML &amp; CSS, hosted on GitHub Pages.</div></footer>
+<script src="../assets/config.js"></script><script src="../assets/site.js"></script></body></html>

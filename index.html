@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Name · Data Analyst Portfolio</title><meta name="description" content="Data analyst portfolio: live Power BI dashboards and a machine-learning churn model.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/style.css"></head><body>
+<nav class="nav"><div class="wrap"><a class="brand" href="index.html"><span class="badge" data-initials></span><span data-name></span></a>
+<div class="nav-links"><a href="index.html#projects" class="keep">Projects</a><a href="index.html#experience">Experience</a><a href="index.html#skills">Skills</a><a href="index.html#about">About</a><a href="index.html#contact" class="keep">Contact</a></div></div></nav>
+<main>
+<header class="hero"><div class="wrap hero-grid"><div>
+<span class="open" data-open></span>
+<h1>Hi, I'm <span data-name></span>.<br>I turn messy B2B data into decisions.</h1>
+<p class="lede">Business &amp; data analyst with 4 years in data roles across telecom, entertainment, research and software. I build Power BI reports, SQL reporting datasets and Python automation that management and sales teams use every day. I'm now studying for a master's in Data Science &amp; Engineering at BITS Pilani.</p>
+<div class="cta"><a class="btn primary" href="#projects">See live dashboards</a><a class="btn" data-cv href="#" target="_blank" rel="noopener">Download CV</a><a class="btn" data-linkedin href="#" target="_blank" rel="noopener">LinkedIn</a><a class="btn" data-github href="#" target="_blank" rel="noopener">GitHub</a></div>
+</div>
+<div class="stats"><div class="stat"><b>4</b><span>live, interactive Power BI reports</span></div><div class="stat"><b>400+</b><span>DAX measures in the 360° model</span></div><div class="stat"><b>4 yrs</b><span>in data roles across 4 industries</span></div><div class="stat"><b>30 min</b><span>saved per KAM per day (lead tracking)</span></div></div>
+</div></header>
+
+<section id="projects"><div class="wrap"><p class="eyebrow">Projects</p><h2>Live dashboards, not screenshots</h2>
+<p class="sub">Every report below is the real Power BI report, embedded live. Filter, drill through and explore. They were built for production use, and these public versions run on anonymised sample data.</p>
+<div class="grid"><a class="card feature" href="projects/b2b-360.html"><div class="card-top"><span class="kind">Power BI · Executive dashboard</span><span class="pill" data-status="b2b-360"></span></div>
+<h3>B2B 360° Management Dashboard</h3><p>One report that gives management the full picture of the B2B business: revenue, margin, customer base, sales, churn, devices, pipeline and commissions.</p><p class="outcome">13 drill-through pages behind a single 360° KPI home page</p>
+<div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">PostgreSQL</span><span class="chip">Oracle</span></div><span class="go">View live report →</span></a><a class="card" href="projects/lead-tracking.html"><div class="card-top"><span class="kind">Power BI · Operational dashboard</span><span class="pill" data-status="lead-tracking"></span></div>
+<h3>Enterprise Lead Tracking</h3><p>Shows Key Account Managers where every enterprise lead is right now and which team it&#x27;s waiting on, from business case to paid invoice.</p><p class="outcome">Saves each KAM ~30 minutes a day of calling teams to chase leads</p>
+<div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">SharePoint Lists</span><span class="chip">Process tracking</span></div><span class="go">View live report →</span></a><a class="card" href="projects/mobility-incentive.html"><div class="card-top"><span class="kind">Power BI · Commission dashboard</span><span class="pill" data-status="mobility-incentive"></span></div>
+<h3>Mobility Sales Incentive</h3><p>Quarterly commission dashboard: each KAM&#x27;s MRC achievement against target from gross adds, upgrades, downgrades and churn, converted into payout.</p><p class="outcome">One version of the truth for KAM payouts, with a row-level-security view per KAM</p>
+<div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Row-level security</span><span class="chip">PostgreSQL</span><span class="chip">SharePoint</span></div><span class="go">View live report →</span></a><a class="card" href="projects/enterprise-achievement.html"><div class="card-top"><span class="kind">Power BI · Commission dashboard</span><span class="pill" data-status="enterprise-achievement"></span></div>
+<h3>Enterprise Sales Achievement</h3><p>Quarterly target vs achievement for enterprise KAMs by product category, from signed POs and their services, with payout calculated in the report.</p><p class="outcome">Cumulative target, remaining gap and payout for every KAM and segment</p>
+<div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Row-level security</span><span class="chip">SharePoint Lists</span></div><span class="go">View live report →</span></a><a class="card" href="projects/churn-prediction.html"><div class="card-top"><span class="kind">Machine learning · Streamlit</span><span class="pill" data-status="churn"></span></div>
+<h3>B2B Telecom Churn Prediction</h3><p>A LightGBM model that flags B2B customers likely to churn, with SHAP explanations of why. Served as an interactive Streamlit app and a Power BI view.</p><p class="outcome">End to end: data prep → model → explainability → deployed app</p>
+<div class="chips"><span class="chip">Python</span><span class="chip">LightGBM</span><span class="chip">SHAP</span><span class="chip">Streamlit</span><span class="chip">Power BI</span></div><span class="go">Try the model →</span></a></div></div></section>
+
+<section id="skills"><div class="wrap"><p class="eyebrow">Toolkit</p><h2>Skills</h2><div class="skills">
+<div class="skill"><h4>Power BI</h4><ul><li>Data modelling (star schema)</li><li>Advanced DAX &amp; time intelligence</li><li>Power Query (M)</li><li>Row-level security</li><li>Report UX &amp; navigation</li></ul></div>
+<div class="skill"><h4>Data &amp; SQL</h4><ul><li>PostgreSQL · Oracle · MySQL</li><li>Denodo (data virtualisation)</li><li>Data validation &amp; reconciliation</li><li>Excel · KPI design</li></ul></div>
+<div class="skill"><h4>Python &amp; ML</h4><ul><li>pandas · NumPy · scikit-learn</li><li>LightGBM · SHAP</li><li>Selenium · BeautifulSoup · Requests</li><li>Automation bots · Streamlit</li></ul></div>
+<div class="skill"><h4>Platforms &amp; domain</h4><ul><li>Salesforce · Siebel · SharePoint</li><li>Power Apps · Microsoft Fabric</li><li>B2B telecom sales &amp; incentives</li><li>P&amp;L, budget vs actual</li><li>Requirements &amp; stakeholder work</li></ul></div>
+</div></div></section>
+
+<section id="experience"><div class="wrap"><p class="eyebrow">Experience</p><h2>Where I've worked</h2>
+<div class="timeline">
+<div class="job"><div class="when">May 2026 – Nov 2026</div><div><h3>Business Analyst · Zain</h3><p class="where">Kuwait · Telecom</p><p>Built the B2B management 360°, incentive and lead-tracking reporting on this site. Defined KPIs with stakeholders, wrote SQL to build validated reporting datasets, developed financial KPIs and time-based analysis in DAX, and automated repetitive reporting.</p></div></div>
+<div class="job"><div class="when">Dec 2024 – Apr 2026</div><div><h3>Data Analyst · Khaleeji Entertainment Holding</h3><p class="where">Kuwait · Entertainment</p><p>Maintained and optimised company databases, analysed machine-performance data to find trends and faults, and built Power BI dashboards for financial performance across periods and business units. Contributed to cost reduction and better machine reliability.</p></div></div>
+<div class="job"><div class="when">Sep 2023 – Oct 2024</div><div><h3>Research Analyst · GOMO Group</h3><p class="where">Pune, India · Research</p><p>Built a data-validation bot that checked web data against agent entries, plus a cloud clean-up bot. Scraped target sites with Selenium and BeautifulSoup, used an ML model for Japanese-to-English speech conversion, and delivered Power BI reports to several departments.</p></div></div>
+<div class="job"><div class="when">Dec 2022 – Feb 2024</div><div><h3>Data Science Teaching Assistant · Edyoda Digital University</h3><p class="where">Pune, India · Education</p><p>Helped students with Python, SQL, DSA and machine-learning problems, and showed classification and regression models through hands-on projects.</p></div></div>
+<div class="job"><div class="when">Dec 2022 – Aug 2023</div><div><h3>Software Developer · FAZ Shipping</h3><p class="where">Pune, India · Shipping</p><p>Built and deployed the corporate website, ran data cleaning and ETL, built a web crawler into structured sheets, and made Power BI monitoring reports.</p></div></div>
+<div class="job"><div class="when">Sep 2021 – Jul 2022</div><div><h3>Relationship Manager · Spinny</h3><p class="where">Pune, India · Automotive sales</p><p>Customer-facing sales and delivery. It's where I learned how sales teams think, which shapes the reports I build for them.</p></div></div>
+</div></div></section>
+
+<section id="about"><div class="wrap about"><div><p class="eyebrow">About</p><h2>Analyst with a business-first mindset</h2>
+<p>I started on the business side, in sales, then moved into software, research and analytics. That path shapes how I work: I begin with the decision someone needs to make, then build the data and the report that supports it.</p>
+<p>I'm happiest when the hard part is joining data from different systems and writing logic people trust, then putting it in a report that's quick to read and act on. I'm studying for a master's in Data Science &amp; Engineering at BITS Pilani to deepen my machine-learning skills.</p></div>
+<div class="facts"><dl><dt>Based in</dt><dd data-location></dd><dt>Focus</dt><dd>BI · Sales, finance &amp; performance analytics</dd><dt>Education</dt><dd>Master's, Data Science &amp; Engineering, BITS Pilani (Oct 2025 – Dec 2027, in progress)<br>Data Scientist Program, Edyoda (83%)<br>B.E. Mechanical, JSPM's JSCOE Pune</dd><dt>Tools</dt><dd>Power BI · SQL · Python · Excel</dd></dl></div></div></section>
+
+<section id="contact"><div class="wrap"><div class="contact"><div><h2>Let's talk</h2><p>Hiring for a data or BI analyst? I'd be glad to walk you through any of these reports.</p></div>
+<div class="cta"><a class="btn primary" data-email href="#"><span data-email-text></span></a><a class="btn" data-linkedin href="#" target="_blank" rel="noopener">LinkedIn</a></div></div></div></section>
+</main><footer><div class="wrap">© <span data-year></span> <span data-name></span> · Dashboards run on anonymised sample data. Built with HTML &amp; CSS, hosted on GitHub Pages.</div></footer>
+<script src="assets/config.js"></script><script src="assets/site.js"></script></body></html>

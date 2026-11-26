@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Enterprise Lead Tracking · Your Name</title><meta name="description" content="Data analyst portfolio: live Power BI dashboards and a machine-learning churn model.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/style.css"></head><body>
+<nav class="nav"><div class="wrap"><a class="brand" href="../index.html"><span class="badge" data-initials></span><span data-name></span></a>
+<div class="nav-links"><a href="../index.html#projects" class="keep">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#skills">Skills</a><a href="../index.html#about">About</a><a href="../index.html#contact" class="keep">Contact</a></div></div></nav>
+<main class="wrap">
+<p class="crumb"><a href="../index.html#projects">← All projects</a></p>
+<header class="phead"><p class="eyebrow">Power BI · Operational dashboard</p><h1>Enterprise Lead Tracking</h1>
+<p class="lede">Shows Key Account Managers where every enterprise lead is right now and which team it&#x27;s waiting on, from business case to paid invoice.</p>
+<div class="meta"><div><small>Built for</small><b>Key Account Managers</b></div><div><small>Refresh</small><b>Daily refresh</b></div><div><small>Data sources</small><b>SharePoint Lists (OP &amp; PO entries)</b></div><div><small>Model size</small><b>2 fact tables · 39 measures</b></div></div></header>
+<div class="embed-bar"><span>Interactive report. Click, filter and drill through.</span><a class="btn" data-report-link="lead-tracking" href="#" target="_blank" rel="noopener">Open full screen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a></div>
+<div class="embed" data-report="lead-tracking" data-title="Enterprise Lead Tracking"><div class="soon"><div><b>Live report coming soon</b>The interactive Power BI report will appear here.</div></div></div>
+<section><div class="two"><div class="panel"><p class="eyebrow">The problem</p><p>An enterprise deal passes through Pre-Sales, Pricing, Marketing, Finance, CFO, Revenue Assurance, Charging and Collections. KAMs had no single place to see where a lead was stuck, so they visited or called team after team, and often heard “it’s not with us”.</p></div>
+<div class="panel"><p class="eyebrow">What I built</p><p>The report reads the opportunity (OP) and purchase-order (PO) lists. For each lead it shows the latest stage in plain language, the team that owns it now, and the value at stake, so the KAM goes straight to the right team.</p><p class="outcome" style="margin:10px 0 0"><b>Impact:</b> Saves each KAM ~30 minutes a day of calling teams to chase leads</p></div></div></section>
+<section style="padding-top:0"><p class="eyebrow">The lead journey it tracks</p><div class="flow"><span>New request</span><i>→</i><span>Pre-Sales review</span><i>→</i><span>Pricing / EPM</span><i>→</i><span>Marketing</span><i>→</i><span>Finance</span><i>→</i><span>CFO / CEBO</span><i>→</i><span>Revenue Assurance</span><i>→</i><span>PO: Charging</span><i>→</i><span>Invoicing &amp; collection</span><i>→</i><span>Paid</span></div></section>
+<section style="padding-top:0"><p class="eyebrow">Inside the report</p><h2>What each page answers</h2><div class="pages"><div class="page"><b>Opportunity overview</b><span>OP leads, approved / pending / rejected, total TCV</span></div><div class="page"><b>OP status distribution</b><span>Which approval stage leads are waiting in</span></div><div class="page"><b>PO stage distribution</b><span>Charging, invoicing and collection pipeline</span></div><div class="page"><b>Lead tables</b><span>Every lead with company, KAM, latest status and owning team</span></div></div></section>
+<section style="padding-top:0"><div class="two"><div class="panel"><p class="eyebrow">How it's built</p><ul><li>Latest-status logic per lead using the most recent entry</li><li>System status codes translated into plain-language ‘who has it now’ labels</li><li>De-duplicated PO value (SUMX over SUMMARIZE) so multi-line POs aren’t double counted</li><li>Segment and KAM slicers for managers; KAM view for day-to-day follow-up</li></ul>
+<div class="chips" style="margin-top:16px"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">SharePoint Lists</span><span class="chip">Process tracking</span></div></div>
+<div class="panel"><p class="eyebrow">DAX highlight</p><div style="margin-top:18px"><p class="code-title">Latest PO stage → who owns it now</p><pre><span class="k">VAR</span> LatestDate = <span class="k">MAX</span> ( fact_POEntry[Created] )
+<span class="k">VAR</span> CurrentStage =
+    <span class="k">CALCULATE</span> ( <span class="k">SELECTEDVALUE</span> ( fact_POEntry[Stage] ), fact_POEntry[Created] = LatestDate )
+<span class="k">RETURN</span>
+    <span class="k">SWITCH</span> (
+        CurrentStage,
+        <span class="s">&quot;Sale Approval&quot;</span>,       <span class="s">&quot;Under Review - Charging Team&quot;</span>,
+        <span class="s">&quot;Charging Approval&quot;</span>,   <span class="s">&quot;Pending Charging&quot;</span>,
+        <span class="s">&quot;Collection Approval&quot;</span>, <span class="s">&quot;Pending Invoicing / Collection&quot;</span>,
+        <span class="s">&quot;Request Closed&quot;</span>,      <span class="s">&quot;Invoice Paid&quot;</span>,
+        <span class="s">&quot;Sale Rejected&quot;</span>,       <span class="s">&quot;PO Rejected - Charging Team&quot;</span>,
+        CurrentStage
+    )</pre></div></div></div></section>
+<div class="note"><span>🔒</span><span>Originally built on live production data. This public version runs on <b>anonymised, rescaled sample data</b>: all customer, employee and contract details are fictional.</span></div>
+<div class="next"><a class="btn" href="b2b-360.html">← B2B 360° Management Dashboard</a><a class="btn" href="mobility-incentive.html">Mobility Sales Incentive →</a></div>
+</main><footer><div class="wrap">© <span data-year></span> <span data-name></span> · Dashboards run on anonymised sample data. Built with HTML &amp; CSS, hosted on GitHub Pages.</div></footer>
+<script src="../assets/config.js"></script><script src="../assets/site.js"></script></body></html>
