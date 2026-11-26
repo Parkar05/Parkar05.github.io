@@ -1,27 +1,30 @@
-# Data Analyst Portfolio
+Mohammed Ali Parkar · Data & BI Analyst Portfolio
 
-A static site, ready for GitHub Pages: live Power BI reports and an ML churn app.
+🌐 Live site: parkar05.github.io
 
-## 1. Personalise (one file)
-Open `assets/config.js` and fill in:
-- your name, email, LinkedIn and CV path (put the PDF in `assets/`)
-- the **Publish to web** link for each report (`https://app.powerbi.com/view?r=...`)
-- your Streamlit app URL
+BI, Data & Business Analyst based in Kuwait, open to roles across the GCC. 4+ years in data roles across telecom, entertainment, marketing & advertising and software. I build Power BI reports, SQL reporting datasets, Python automation and machine-learning models that management and business teams use every day.
 
-Any link you leave empty shows "Coming soon", so you can go live with one report and add the rest later.
+Projects
+Project	What it shows	Stack
+B2B 360° Management Dashboard	One executive view across financials, base, sales, churn, devices, pipeline and incentives. 13 drill-through pages, 400+ DAX measures	Power BI · DAX · Power Query · PostgreSQL · Oracle · SharePoint
+Enterprise Lead Tracking	Shows each KAM where every lead is and which team owns it. Saves ~30 min per KAM per day	Power BI · DAX · SharePoint Lists
+Mobility Sales Incentive	Quarterly MRC achievement vs target and payout per KAM, with row-level security	Power BI · DAX · RLS · PostgreSQL
+Enterprise Sales Achievement	Category targets, cumulative achievement and context-aware payout	Power BI · DAX · RLS · SharePoint
+B2B Telecom Churn Prediction	LightGBM churn model with SHAP explanations, served as a Streamlit app	Python · LightGBM · SHAP · Streamlit · Power BI
 
-## 2. Publish on GitHub Pages
-1. Create a repo named **`Parkar05.github.io`** (exactly your username + `.github.io`).
-2. Upload everything in this folder to the repo root (keep the `assets` and `projects` folders and `.nojekyll`).
-3. Go to **Settings → Pages → Source: Deploy from a branch → main / root**.
-4. After about a minute the site is live at **https://parkar05.github.io**. Put that link on your CV.
+All dashboards are the real Power BI reports, embedded live. They run on anonymised, rescaled sample data: no real customer, employee or company data is published.
 
-## Editing text
-Project write-ups are plain HTML in `projects/*.html`. Edit them directly in GitHub if you want to change wording.
+Skills
 
-## Extras (all in assets/config.js)
-- **photo**: upload `assets/photo.jpg`, then set `photo: "assets/photo.jpg"`
-- **certificate**: name, issuer and link of your certificate
-- **thumbs**: upload images to `assets/thumbs/` (e.g. `b2b-360.png`), then set the path for each project card
-- **videos**: paste a YouTube (unlisted) or Loom link per dashboard. A "90-second tour" appears under the report
-- **goatcounter**: sign up free at goatcounter.com (pick a code like `parkar05`) and paste the code to see visitor stats
+BI: Power BI, DAX, Power Query, data modelling, RLS, Microsoft Fabric, Excel
+Data: SQL, PostgreSQL, Oracle, MySQL, Denodo
+Python & ML: pandas, NumPy, scikit-learn, LightGBM, SHAP, Selenium, BeautifulSoup, Streamlit
+Platforms: Salesforce, Siebel, SharePoint, Power Apps
+
+Contact
+
+📧 mohammedaliparkar123@gmail.com · 💼 LinkedIn · 📄 CV
+
+Available to join 18 Jan – 7 Feb 2027.
+
+<sub>Built with plain HTML, CSS & JavaScript, hosted on GitHub Pages. Setup notes: SETUP.md.</sub>
