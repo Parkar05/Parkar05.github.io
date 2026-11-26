@@ -17,10 +17,11 @@ BI, Data & Business Analyst based in Kuwait, open to roles across the GCC. 4+ ye
 > All dashboards are the real Power BI reports, embedded live. They run on **anonymised, rescaled sample data**: no real customer, employee or company data is published.
 
 ## Skills
-**BI:** Power BI, DAX, Power Query, data modelling, RLS, Microsoft Fabric, Excel
-**Data:** SQL, PostgreSQL, Oracle, MySQL, Denodo
-**Python & ML:** pandas, NumPy, scikit-learn, LightGBM, SHAP, Selenium, BeautifulSoup, Streamlit
-**Platforms:** Salesforce, Siebel, SharePoint, Power Apps
+- **BI & Reporting:** Power BI, DAX, Power Query, data modelling, RLS, Microsoft Fabric, Excel, Power Apps
+- **Databases & SQL:** SQL, PostgreSQL, Oracle, MySQL, Denodo
+- **Python & ML:** pandas, NumPy, scikit-learn, LightGBM, SHAP, Jupyter, Streamlit
+- **Automation:** Selenium, BeautifulSoup, Requests
+- **Platforms:** Salesforce, Siebel, SharePoint, Git & GitHub
 
 ## Contact
 📧 [mohammedaliparkar123@gmail.com](mailto:mohammedaliparkar123@gmail.com) · 💼 [LinkedIn](https://www.linkedin.com/in/mohammedaliparkar/) · 📄 [CV](https://parkar05.github.io/assets/Mohammed_Parkar_CV.pdf)
