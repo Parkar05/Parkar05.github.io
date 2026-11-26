@@ -18,3 +18,10 @@ Any link you leave empty shows "Coming soon", so you can go live with one report
 
 ## Editing text
 Project write-ups are plain HTML in `projects/*.html`. Edit them directly in GitHub if you want to change wording.
+
+## Extras (all in assets/config.js)
+- **photo**: upload `assets/photo.jpg`, then set `photo: "assets/photo.jpg"`
+- **certificate**: name, issuer and link of your certificate
+- **thumbs**: upload images to `assets/thumbs/` (e.g. `b2b-360.png`), then set the path for each project card
+- **videos**: paste a YouTube (unlisted) or Loom link per dashboard. A "90-second tour" appears under the report
+- **goatcounter**: sign up free at goatcounter.com (pick a code like `parkar05`) and paste the code to see visitor stats

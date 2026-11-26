@@ -21,6 +21,29 @@ window.PORTFOLIO = {
     "enterprise-achievement": ""    // Enterprise Achievement Dashboard
   },
 
+  // Profile photo (put the file in assets/, e.g. "assets/photo.jpg")
+  photo: "",
+
+  // Certificate shown in About (link = the certificate or your LinkedIn certifications page)
+  certificate: {
+    name:   "Data Science Certificate",
+    issuer: "",
+    link:   "https://www.linkedin.com/in/mohammedaliparkar/details/certifications/"
+  },
+
+  // Project card images (put PNG/JPG in assets/thumbs/), e.g. "assets/thumbs/b2b-360.png"
+  thumbs: {
+    "b2b-360": "", "lead-tracking": "", "mobility-incentive": "", "enterprise-achievement": "", "churn": ""
+  },
+
+  // Walkthrough videos: paste a YouTube (unlisted is fine) or Loom link
+  videos: {
+    "b2b-360": "", "lead-tracking": "", "mobility-incentive": "", "enterprise-achievement": ""
+  },
+
+  // Visitor stats: create a free account at goatcounter.com and paste your code, e.g. "parkar05"
+  goatcounter: "",
+
   churn: {
     app:  "",                                                   // Streamlit app URL
     repo: "https://github.com/Parkar05/telecom-churn-prediction"

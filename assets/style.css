@@ -262,3 +262,16 @@ pre .s{color:#FCD34D}
   .nav-links a,.nav-links a:not(.keep),.nav-links a:not(.keep):not([href*="contact"]){display:block;padding:12px 4px;font-size:16px;font-weight:500;color:var(--ink);border-bottom:1px solid #F1F5F9}
   .nav-links a:last-child{border-bottom:0}
 }
+/* ===== v9 extras ===== */
+.hero-note{margin:16px 0 0;font-size:14px;color:var(--ink-2)}
+.avail{margin-top:8px!important;color:#5EEAD4!important;font-size:14.5px}
+.avail b{color:#fff}
+.cert b{display:block;font-size:15px}
+.cert span{display:block;font-size:14px;color:var(--ink-2)}
+.cert a{display:inline-block;margin-top:4px;font-size:14px;font-weight:600}
+.thumb{height:0;padding-top:52%;margin:-26px -26px 4px;border-radius:var(--radius) var(--radius) 0 0;background:#E2E8F0 center/cover no-repeat;border-bottom:1px solid var(--line)}
+.card.feature .thumb{padding-top:36%;border-bottom-color:rgba(255,255,255,.1)}
+@media(max-width:640px){.thumb{margin:-20px -20px 4px}}
+.embed.video{padding-top:56.25%}
+.photo-wrap{margin:0 0 18px}
+.photo{width:120px;height:120px;border-radius:50%;object-fit:cover;border:4px solid #fff;box-shadow:var(--shadow)}

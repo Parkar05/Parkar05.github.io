@@ -52,3 +52,45 @@
     cbox.innerHTML = ""; cbox.appendChild(f); cbox.classList.add("live", "tall");
   }
 })();
+// ---- v9 extras: photo, certificate, thumbnails, videos, visitor stats ----
+(function () {
+  var C = window.PORTFOLIO || {};
+  var ROOT = document.querySelector('link[rel="stylesheet"][href*="assets/style.css"]').getAttribute("href").split("assets/")[0];
+  function asset(u) { return /^https?:/.test(u) ? u : ROOT + u; }
+  if (C.photo) {
+    document.querySelectorAll("[data-photo]").forEach(function (img) { img.src = asset(C.photo); });
+    document.querySelectorAll("[data-photo-wrap]").forEach(function (w) { w.style.display = ""; });
+  }
+  var cert = C.certificate || {};
+  document.querySelectorAll("[data-cert-name]").forEach(function (e) { if (cert.name) e.textContent = cert.name; });
+  document.querySelectorAll("[data-cert-issuer]").forEach(function (e) { e.textContent = cert.issuer || ""; if (!cert.issuer) e.style.display = "none"; });
+  document.querySelectorAll("[data-cert-link]").forEach(function (e) { if (cert.link) e.href = cert.link; else e.style.display = "none"; });
+  var T = C.thumbs || {};
+  document.querySelectorAll("[data-thumb]").forEach(function (d) {
+    var u = T[d.getAttribute("data-thumb")];
+    if (u) { d.style.backgroundImage = "url('" + asset(u) + "')"; d.classList.add("has"); } else { d.remove(); }
+  });
+  function videoEmbed(u) {
+    var m = u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    if (m) return "https://www.youtube-nocookie.com/embed/" + m[1] + "?rel=0";
+    var l = u.match(/loom\.com\/(?:share|embed)\/([\w]+)/);
+    if (l) return "https://www.loom.com/embed/" + l[1];
+    return u;
+  }
+  var V = C.videos || {};
+  document.querySelectorAll("[data-video]").forEach(function (box) {
+    var key = box.getAttribute("data-video"), u = V[key];
+    if (!u) return;
+    var f = document.createElement("iframe");
+    f.src = videoEmbed(u); f.title = "Walkthrough video"; f.loading = "lazy";
+    f.setAttribute("allow", "fullscreen; picture-in-picture"); f.setAttribute("allowfullscreen", "true");
+    box.appendChild(f);
+    var sec = document.querySelector('[data-video-section="' + key + '"]'); if (sec) sec.style.display = "";
+  });
+  if (C.goatcounter && location.protocol.indexOf("http") === 0) {
+    var s = document.createElement("script");
+    s.async = true; s.src = "//gc.zgo.at/count.js";
+    s.setAttribute("data-goatcounter", "https://" + C.goatcounter + ".goatcounter.com/count");
+    document.body.appendChild(s);
+  }
+})();
