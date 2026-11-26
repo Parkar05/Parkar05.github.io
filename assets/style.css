@@ -137,3 +137,21 @@ pre .s{color:#FCD34D}
 .job .where{font-size:13.5px;color:var(--accent-2);font-weight:600;margin:2px 0 6px}
 .job p{margin:0;color:var(--ink-2);font-size:15px}
 @media(max-width:700px){.job{grid-template-columns:1fr;gap:4px}}
+/* v3: skills chips + refined experience */
+.skillgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.skillgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.skillgrid{grid-template-columns:1fr}}
+.skillgrid .skill h4{margin:0 0 12px}
+.skillgrid .chips{padding-top:0}
+.job{padding-bottom:22px}
+.jobcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
+.jobcard h3{font-size:17.5px}
+.jobcard .co{margin:2px 0 0;font-weight:600;color:var(--ink)}
+.jobcard .where{margin:2px 0 10px}
+.jobcard ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:14.8px}
+.jobcard li{margin:4px 0}
+.jobcard .chips{margin-top:12px;padding-top:0}
+.job::before{top:24px}
+.job .when{padding-top:20px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.now{font-size:11.5px;font-weight:700;color:var(--accent-2);background:var(--accent-soft);padding:2px 8px;border-radius:999px}
+@media(max-width:700px){.job .when{padding-top:0;flex-direction:row;align-items:center}}
