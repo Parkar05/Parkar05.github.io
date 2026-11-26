@@ -12,7 +12,7 @@ window.PORTFOLIO = {
   linkedin: "https://www.linkedin.com/in/mohammedaliparkar/",
   github: "https://github.com/Parkar05",
   cv: "assets/Mohammed_Parkar_CV.pdf",
-  openTo: "Open to Data Analyst / BI Analyst roles · Kuwait & GCC",
+  openTo: "Open to BI, Data & Business Analyst roles · Kuwait · Saudi Arabia · Qatar · UAE · GCC",
 
   reports: {
     "b2b-360":                "",   // B2B 360° Management Dashboard

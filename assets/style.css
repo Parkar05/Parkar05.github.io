@@ -155,3 +155,17 @@ pre .s{color:#FCD34D}
 .job .when{padding-top:20px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
 .now{font-size:11.5px;font-weight:700;color:var(--accent-2);background:var(--accent-soft);padding:2px 8px;border-radius:999px}
 @media(max-width:700px){.job .when{padding-top:0;flex-direction:row;align-items:center}}
+/* v4: about facts card */
+.about{grid-template-columns:1fr 1fr;align-items:start}
+.facts{padding:6px 24px}
+.fact{padding:16px 0;border-bottom:1px solid var(--line)}
+.fact:last-child{border-bottom:0}
+.fact>small{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.fact>b{font-size:16px}
+.fact>span{display:block;font-size:14px;color:var(--ink-2)}
+.fact .chips{padding-top:0}
+.chip.strong{background:var(--accent-soft);border-color:#B7E4DC;color:var(--accent-2);font-weight:600}
+.edu{padding:8px 0 8px 14px;border-left:3px solid var(--accent-soft);margin:6px 0}
+.edu b{display:block;font-size:15px}
+.edu span{display:block;font-size:14px;color:var(--ink-2)}
+.edu em{display:block;font-style:normal;font-size:13px;color:var(--muted)}
