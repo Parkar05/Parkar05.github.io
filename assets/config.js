@@ -36,7 +36,7 @@ window.PORTFOLIO = {
 
   // Project card images (put PNG/JPG in assets/thumbs/), e.g. "assets/thumbs/b2b-360.png"
   thumbs: {
-    "b2b-360": "", "lead-tracking": "", "mobility-incentive": "", "enterprise-achievement": "", "churn": ""
+    "b2b-360": "", "lead-tracking": "", "mobility-incentive": "", "enterprise-achievement": "", "churn": "assets/churn-preview.png"
   },
 
   // Walkthrough videos: paste a YouTube (unlisted is fine) or Loom link
@@ -48,7 +48,8 @@ window.PORTFOLIO = {
   goatcounter: "",
 
   churn: {
-    app:  "https://churnradar-telcom.streamlit.app/",                                                  
-    repo: "https://github.com/Parkar05/telecom-churn-prediction"
+    app:  "https://churnradar-telcom.streamlit.app/",           // Streamlit app URL
+    repo: "https://github.com/Parkar05/telecom-churn-prediction",
+    preview: "assets/churn-preview.png"   // screenshot shown until the visitor clicks "Launch"
   }
 };

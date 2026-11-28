@@ -46,10 +46,18 @@
   setHref("[data-churn-repo]", C.churn && C.churn.repo);
   var cbox = document.querySelector("[data-churn-embed]");
   if (cbox && C.churn && C.churn.app) {
-    var f = document.createElement("iframe");
-    f.src = C.churn.app + (C.churn.app.indexOf("?") > -1 ? "&" : "?") + "embed=true";
-    f.title = "Churn prediction app"; f.loading = "lazy";
-    cbox.innerHTML = ""; cbox.appendChild(f); cbox.classList.add("live", "tall");
+    var prev = C.churn.preview || "";
+    cbox.innerHTML = '<button class="launch" type="button">' +
+      (prev ? '<img src="' + (prev.indexOf("http") === 0 ? prev : "../" + prev) + '" alt="ChurnRadar app preview">' : '') +
+      '<span class="launch-btn">▶ Launch the live app</span></button>';
+    cbox.classList.add("tall", "has-preview");
+    cbox.querySelector(".launch").addEventListener("click", function () {
+      var f = document.createElement("iframe");
+      f.src = C.churn.app + (C.churn.app.indexOf("?") > -1 ? "&" : "?") + "embed=true";
+      f.title = "Churn prediction app";
+      cbox.innerHTML = '<div class="loading">Starting the app… this can take up to a minute if it was asleep.</div>';
+      cbox.appendChild(f); cbox.classList.add("live");
+    });
   }
 })();
 // ---- v9 extras: photo, certificate, thumbnails, videos, visitor stats ----
