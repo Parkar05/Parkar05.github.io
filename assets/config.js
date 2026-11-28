@@ -48,7 +48,7 @@ window.PORTFOLIO = {
   goatcounter: "",
 
   churn: {
-    app:  "",                                                   // Streamlit app URL
+    app:  "https://churnradar-telcom.streamlit.app/",                                                  
     repo: "https://github.com/Parkar05/telecom-churn-prediction"
   }
 };
